@@ -1,0 +1,16 @@
+{
+    "name": "nickolanack/lib-google-translate",
+    "description": "Text translator helper using google cloud translate",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick Blackwell",
+            "email": "nickblackwell82@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": { "nickolanack\\": "src/" }
+    }
+}
