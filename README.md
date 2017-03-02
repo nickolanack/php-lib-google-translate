@@ -3,7 +3,7 @@ Helper library to translate text using google cloud translate and cache response
 
 
 Usage
-```
+```php
 
 require __DIR__.'/vendor/autoload.php';
 
