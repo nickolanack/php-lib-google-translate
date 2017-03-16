@@ -90,7 +90,26 @@ class GoogleTranslate{
 		                                                                                                                     
 		$result = curl_exec($ch);
 		//echo $result."\n";
-		return json_decode($result)->data->translations[0]->translatedText;
+		//
+		if(empty($result)){
+			throw new \Exception('No Response');
+		}
+		$response=json_decode($result);
+
+		if(empty($response)){
+			throw new \Exception('Unexpected Response: '.$result);
+		}
+
+		if(key_exists('error', $response)){
+			throw new \Exception('Google Api Error: '.$response->error->message);
+		}
+
+
+		if(!key_exists('data', $response)){
+			throw new \Exception('Expected `data` in json response: '.$result);
+		}
+
+		return $response->data->translations[0]->translatedText;
 
 
 	}
