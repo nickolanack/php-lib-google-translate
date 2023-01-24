@@ -100,12 +100,12 @@ class GoogleTranslate{
 			throw new \Exception('Unexpected Response: '.$result);
 		}
 
-		if(key_exists('error', $response)){
+		if(isset($response->error)){
 			throw new \Exception('Google Api Error: '.$response->error->message);
 		}
 
 
-		if(!key_exists('data', $response)){
+		if(!isset($response->data)){
 			throw new \Exception('Expected `data` in json response: '.$result);
 		}
 
